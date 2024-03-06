@@ -50,8 +50,9 @@ async function getEmergencyBroadcast(starttime, endtime) {
       "size": "15"
    }),
   });
-
   const emergencyBroadcasts = data?.datas;
+
+  console.log(data);
   if (!emergencyBroadcasts || emergencyBroadcasts.length === 0) {
     return ''
   }
@@ -78,4 +79,7 @@ module.exports = {
   getEmergencyBroadcast
 }
 
-getEmergencyBroadcast('2023-02-24 00:00:00', '2023-02-25 23:59:59')
+const todayStartTime = dayjs().startOf('day').format('YYYY-MM-DD HH:mm:ss')
+const nowTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
+
+getEmergencyBroadcast(todayStartTime, nowTime)
