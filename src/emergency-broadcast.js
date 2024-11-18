@@ -79,7 +79,7 @@ module.exports = {
   getEmergencyBroadcast
 }
 
-const todayStartTime = dayjs().startOf('day').format('YYYY-MM-DD HH:mm:ss')
+const todayStartTime = dayjs().subtract(1, 'day').startOf('day').format('YYYY-MM-DD HH:mm:ss')
 const nowTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
 
 getEmergencyBroadcast(todayStartTime, nowTime)
